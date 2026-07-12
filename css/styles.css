@@ -1,23 +1,29 @@
 /* ============================================================
    509 Scoops — site styles
-   Palette: charcoal (dark sections/text), safety orange (action/
-   accent), warm cream/paper (light sections). Edit variables below
-   if the brand shifts.
+   Theme: ice-cream-parlor pastel, playing on "Scoops" — with the
+   mascot (a grinning poop swirl in a cone) making the joke obvious.
    ============================================================ */
 
 :root {
-  --ink: #201c18;
-  --ink-soft: #6b6259;
-  --cream: #f5f1e8;
-  --paper: #fffdf8;
-  --orange: #e8590c;
-  --orange-dark: #c94a08;
-  --moss: #6b7a4f;
-  --line: #ddd5c6;
-  --radius: 8px;
-  --font-head: "Oswald", "Arial Narrow", sans-serif;
-  --font: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  --cream: #fff8ec;
+  --paper: #fffefb;
+  --brown: #4a2c18;
+  --brown-soft: #8a7a68;
+  --fudge: #3a2415;
+  --pink: #ff5d8f;
+  --pink-dark: #e13d70;
+  --pink-pale: #ffe1ea;
+  --mint: #8fd9c4;
+  --mint-dark: #4fae93;
+  --mint-pale: #e2f7f0;
+  --yellow: #ffd166;
+  --yellow-pale: #fff3d6;
+  --cherry: #e63950;
+  --line: #f0dcc0;
+  --radius: 20px;
+  --font-head: "Fredoka", "Baloo 2", sans-serif;
+  --font: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -30,11 +36,16 @@ html {
   scroll-behavior: smooth;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--brown);
   background: var(--cream);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img {
@@ -43,27 +54,17 @@ img {
 }
 
 a {
-  color: var(--orange-dark);
+  color: var(--pink-dark);
 }
 
 h1, h2, h3 {
   font-family: var(--font-head);
+  font-weight: 600;
 }
 
 .container {
   width: min(1080px, 92%);
   margin: 0 auto;
-}
-
-/* ---------- Stripe bar ---------- */
-
-.stripe-bar {
-  height: 6px;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--orange) 0 14px,
-    var(--ink) 14px 28px
-  );
 }
 
 /* ---------- Header ---------- */
@@ -72,30 +73,21 @@ h1, h2, h3 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(245, 241, 232, 0.95);
+  background: rgba(255, 248, 236, 0.95);
   backdrop-filter: blur(6px);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 3px solid var(--brown);
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 0;
+  padding: 0.7rem 0;
 }
 
-.logo {
-  font-family: var(--font-head);
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.logo span {
-  color: var(--orange);
+.logo-mark {
+  height: 44px;
+  width: auto;
 }
 
 .nav-links {
@@ -107,13 +99,13 @@ h1, h2, h3 {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--ink);
-  font-weight: 500;
+  color: var(--brown);
+  font-weight: 700;
   font-size: 0.95rem;
 }
 
 .nav-links a:hover {
-  color: var(--orange-dark);
+  color: var(--pink-dark);
 }
 
 .nav-toggle {
@@ -121,7 +113,7 @@ h1, h2, h3 {
   background: none;
   border: none;
   font-size: 1.6rem;
-  color: var(--ink);
+  color: var(--brown);
   cursor: pointer;
 }
 
@@ -129,69 +121,78 @@ h1, h2, h3 {
 
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
-  border: 2px solid var(--ink);
+  border: none;
   cursor: pointer;
 }
 
 .btn-primary {
-  background: var(--orange);
-  color: var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
+  background: var(--pink);
+  color: #fff;
+  box-shadow: 0 5px 0 var(--pink-dark);
 }
 
 .btn-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--pink-dark);
 }
 
 .btn-outline {
-  border-color: var(--ink);
-  color: var(--ink);
   background: var(--paper);
-  box-shadow: 3px 3px 0 var(--line);
+  color: var(--brown);
+  border: 2px solid var(--brown);
+  box-shadow: 0 5px 0 var(--line);
+  padding: calc(0.75rem - 2px) calc(1.6rem - 2px);
 }
 
 .btn-outline:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--line);
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--line);
 }
 
 .btn-lg {
-  padding: 0.9rem 2rem;
-  font-size: 1rem;
+  padding: 0.9rem 2.1rem;
+  font-size: 1.1rem;
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  background: var(--ink);
+  position: relative;
+  background: var(--fudge);
   color: var(--cream);
-  padding: 5rem 0 4.5rem;
+  padding: 4.5rem 0 6rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero .sprinkle {
+  position: absolute;
+  border-radius: 3px;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2rem, 5vw, 3.4rem);
   line-height: 1.15;
-  letter-spacing: -0.01em;
   max-width: 720px;
   margin: 0 auto 1rem;
+  position: relative;
 }
 
 .hero p.lede {
   font-family: var(--font);
+  font-weight: 600;
   font-size: 1.15rem;
-  color: #cfc7ba;
+  color: var(--yellow);
   max-width: 560px;
   margin: 0 auto 2rem;
+  position: relative;
 }
 
 .hero .cta-row {
@@ -199,25 +200,36 @@ h1, h2, h3 {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .hero .cta-row .btn-outline {
   background: transparent;
   border-color: var(--cream);
   color: var(--cream);
-  box-shadow: 3px 3px 0 rgba(245, 241, 232, 0.35);
+  box-shadow: 0 5px 0 rgba(255, 248, 236, 0.3);
 }
 
 .hero .price-note {
   margin-top: 1.4rem;
-  font-size: 0.92rem;
-  color: #cfc7ba;
+  font-size: 0.95rem;
+  color: #d9c9b8;
+  position: relative;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  display: block;
 }
 
 /* ---------- Trust bar ---------- */
 
 .trust-bar {
-  background: var(--orange);
+  background: var(--mint);
   padding: 0.75rem 0;
 }
 
@@ -232,10 +244,8 @@ h1, h2, h3 {
 .trust-item {
   font-family: var(--font-head);
   font-weight: 600;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink);
+  font-size: 0.85rem;
+  color: var(--brown);
 }
 
 /* ---------- Sections ---------- */
@@ -246,24 +256,23 @@ h1, h2, h3 {
 
 .section-alt {
   background: var(--paper);
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+  border-top: 3px solid var(--brown);
+  border-bottom: 3px solid var(--brown);
 }
 
 .section h2 {
-  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  color: var(--ink);
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  color: var(--brown);
   text-align: center;
   margin-bottom: 0.6rem;
 }
 
 .section .section-sub {
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--brown-soft);
   max-width: 620px;
   margin: 0 auto 2.8rem;
+  font-weight: 600;
 }
 
 /* ---------- How it works ---------- */
@@ -271,34 +280,45 @@ h1, h2, h3 {
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .step {
-  text-align: left;
-  border-top: 3px solid var(--orange);
-  padding-top: 1rem;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .step .num {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--pink);
+  color: #fff;
   font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 2.4rem;
-  color: var(--orange);
-  line-height: 1;
-  margin-bottom: 0.6rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0.9rem;
+}
+
+.step:nth-child(2) .num {
+  background: var(--mint-dark);
+}
+
+.step:nth-child(3) .num {
+  background: var(--yellow);
+  color: var(--brown);
 }
 
 .step h3 {
   margin-bottom: 0.4rem;
-  color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  color: var(--brown);
 }
 
 .step p {
-  color: var(--ink-soft);
+  color: var(--brown-soft);
   font-size: 0.97rem;
 }
 
@@ -313,63 +333,61 @@ h1, h2, h3 {
 
 .plan {
   background: var(--paper);
-  border: 2px solid var(--line);
+  border: 3px solid var(--brown);
   border-radius: var(--radius);
   padding: 2rem 1.6rem;
   text-align: center;
+  box-shadow: 0 8px 0 var(--line);
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
 .plan.featured {
-  border-color: var(--ink);
-  box-shadow: 5px 5px 0 var(--orange);
+  border-color: var(--pink-dark);
+  box-shadow: 0 8px 0 var(--pink-pale);
 }
 
 .plan .badge {
   position: absolute;
   top: -0.9rem;
-  left: 1rem;
-  transform: rotate(-4deg);
-  background: var(--orange);
-  color: var(--ink);
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  background: var(--pink);
+  color: #fff;
   font-family: var(--font-head);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 0.3rem 0.7rem;
-  border-radius: 3px;
-  box-shadow: 2px 2px 0 var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
   white-space: nowrap;
+  box-shadow: 0 3px 0 var(--pink-dark);
 }
 
 .plan h3 {
-  color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  color: var(--brown);
   margin-bottom: 0.6rem;
 }
 
 .plan .price {
   font-family: var(--font-head);
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: var(--ink);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--pink-dark);
   line-height: 1;
 }
 
 .plan .price small {
   font-family: var(--font);
   font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--ink-soft);
+  font-weight: 700;
+  color: var(--brown-soft);
 }
 
 .plan .per-dog {
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  font-weight: 600;
+  color: var(--brown-soft);
   margin: 0.5rem 0 1.1rem;
 }
 
@@ -383,13 +401,11 @@ h1, h2, h3 {
 .plan ul li {
   padding: 0.35rem 0;
   font-size: 0.93rem;
-  color: var(--ink-soft);
+  color: var(--brown-soft);
 }
 
 .plan ul li::before {
-  content: "—";
-  color: var(--orange-dark);
-  font-weight: 700;
+  content: "🍦";
   margin-right: 0.5rem;
 }
 
@@ -402,21 +418,21 @@ h1, h2, h3 {
 }
 
 .commercial-card {
-  background: var(--ink);
+  background: var(--fudge);
   color: var(--cream);
   border-radius: var(--radius);
   padding: 2rem 1.6rem;
-  border-top: 3px solid var(--orange);
+  text-align: center;
+  border: 3px solid var(--brown);
 }
 
 .commercial-card h3 {
   margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  color: var(--yellow);
 }
 
 .commercial-card p {
-  color: #cfc7ba;
+  color: #d9c9b8;
   font-size: 0.93rem;
 }
 
@@ -432,37 +448,39 @@ h1, h2, h3 {
 }
 
 .city-chips span {
-  background: var(--paper);
-  border: 1.5px solid var(--ink);
-  border-radius: 3px;
-  padding: 0.32rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--ink);
+  border: 2px solid var(--brown);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brown);
 }
+
+.city-chips span:nth-child(4n+1) { background: var(--pink-pale); }
+.city-chips span:nth-child(4n+2) { background: var(--mint-pale); }
+.city-chips span:nth-child(4n+3) { background: var(--yellow-pale); }
+.city-chips span:nth-child(4n+4) { background: var(--paper); }
 
 /* ---------- CTA band ---------- */
 
 .cta-band {
-  background: var(--ink);
+  background: var(--fudge);
   color: var(--cream);
   text-align: center;
   padding: 4rem 0;
-  border-top: 6px solid var(--orange);
+  border-top: 5px solid var(--pink);
 }
 
 .cta-band h2 {
   color: var(--cream);
-  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-  text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
   margin-bottom: 0.6rem;
 }
 
 .cta-band p {
-  color: #cfc7ba;
+  color: #d9c9b8;
   margin-bottom: 1.8rem;
+  font-weight: 600;
 }
 
 /* ---------- Details / fine print lists ---------- */
@@ -477,21 +495,20 @@ h1, h2, h3 {
 
 .detail-card {
   background: var(--paper);
-  border: 2px solid var(--line);
+  border: 3px solid var(--brown);
   border-radius: var(--radius);
   padding: 1.6rem;
+  box-shadow: 0 6px 0 var(--line);
 }
 
 .detail-card h3 {
-  color: var(--ink);
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  color: var(--brown);
+  font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
 
 .detail-card p {
-  color: var(--ink-soft);
+  color: var(--brown-soft);
   font-size: 0.94rem;
 }
 
@@ -501,35 +518,38 @@ h1, h2, h3 {
   max-width: 680px;
   margin: 0 auto;
   background: var(--paper);
-  border: 2px solid var(--ink);
+  border: 3px solid var(--brown);
   border-radius: var(--radius);
   padding: 2rem;
+  box-shadow: 0 8px 0 var(--line);
+  overflow-x: auto;
 }
 
 .form-placeholder {
-  border: 2px dashed var(--orange);
+  border: 3px dashed var(--pink);
   border-radius: var(--radius);
   padding: 2.5rem 1.5rem;
   text-align: center;
-  color: var(--ink-soft);
-  background: var(--cream);
+  color: var(--brown-soft);
+  background: var(--pink-pale);
 }
 
 .contact-fallback {
   text-align: center;
   margin-top: 2rem;
-  color: var(--ink-soft);
+  color: var(--brown-soft);
+  font-weight: 600;
 }
 
 .contact-fallback a {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
-  background: var(--ink);
-  color: #cfc7ba;
+  background: var(--fudge);
+  color: #d9c9b8;
   padding: 2.5rem 0;
   font-size: 0.9rem;
 }
@@ -537,12 +557,18 @@ h1, h2, h3 {
 .site-footer .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .site-footer a {
   color: var(--cream);
+}
+
+.site-footer .footer-brand {
+  height: 40px;
+  width: auto;
 }
 
 /* ---------- Responsive ---------- */
@@ -561,7 +587,7 @@ h1, h2, h3 {
     flex-direction: column;
     gap: 0;
     background: var(--cream);
-    border-bottom: 2px solid var(--ink);
+    border-bottom: 3px solid var(--brown);
     padding: 0.5rem 0 1rem;
   }
 
@@ -581,6 +607,6 @@ h1, h2, h3 {
   }
 
   .hero {
-    padding: 3.5rem 0 3rem;
+    padding: 3.5rem 0 4.5rem;
   }
 }
