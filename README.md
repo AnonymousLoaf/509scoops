@@ -27,6 +27,10 @@ All asset/CSS/JS references use root-absolute paths (`/css/styles.css`,
 pages consistent with this pattern (a folder + `index.html`, absolute paths)
 rather than mixing in bare `.html` files.
 
+`styles.css` and `nav.js` are loaded with a `?v=N` cache-busting query string
+(currently `v=2`). Bump that number on every CSS/JS change so browsers and
+GitHub's CDN can't serve a stale copy paired with new HTML.
+
 ## Preview locally
 
 Open `index.html` in a browser, or for a proper local server:
