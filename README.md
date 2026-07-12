@@ -16,7 +16,8 @@ tells Pages the custom domain; don't delete it.
 |------|---------|
 | `index.html` | Home: hero, how it works, plans overview, commercial, service area |
 | `pricing.html` | Full pricing cards + policies (billing, cancellation, referrals) |
-| `quote.html` | Quote request page — **Jobber form embeds here** |
+| `quote.html` | Quote/signup request page — **Jobber form embeds here** |
+| `book.html` | Currently a "coming soon" page for online booking; Jobber booking form embed (form_id 4968383) is saved commented-out in the file, ready to restore |
 
 ## Preview locally
 
@@ -37,18 +38,24 @@ cleanup), Doody Pros ($15/wk but 8-week contract + surcharges), Scoop Hero
 ("from $19/wk", unpublished). Differentiators to keep loud: no contracts,
 transparent pricing, photo + text after every visit.
 
-## Before launch — remaining checklist
+## Status
 
-1. **Phone & email** — replace `(555) 555-0123` / `hello@example.com` in the
-   header/footer of all three pages (marked with `TODO` comments)
-2. **Jobber embed** — in `quote.html`, replace the dashed placeholder box with
-   your Jobber request-form embed code (Jobber: Settings → Requests → embed)
-3. **Confirm prices** — cards carry market-sweep numbers; adjust if your
-   costs/margins say otherwise (comments mark the spots)
-4. **Register the business** — check "509 Scoops" in the WA Secretary of State
-   business search, and grab matching social handles
-5. **Logo/colors** — all colors are CSS variables at the top of
+- Phone (509) 416-6473 and email 509scoops@gmail.com are live on all pages
+- Jobber quote form is embedded and working on `quote.html`
+- Online booking (`book.html`) is a placeholder until the Jobber booking form
+  (services, availability, questions) is fully configured and tested
+
+## Remaining checklist
+
+1. **Register the business** — LLC filing with WA Secretary of State recommended
+   before hiring or taking on liability-heavy work; check "509 Scoops LLC" is
+   still available
+2. **Liability insurance** — needed before commercial (HOA/apartment) work
+3. **Logo/colors** — all colors are CSS variables at the top of
    `css/styles.css`; swap them once you have a logo
+4. **Restore online booking** — once Jobber's booking form is confirmed
+   working end-to-end (real availability, not a free-text date field), swap
+   the embed back into `book.html`
 
 ## Deploy
 
