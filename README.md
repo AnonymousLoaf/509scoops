@@ -12,12 +12,20 @@ tells Pages the custom domain; don't delete it.
 
 ## Pages
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Home: hero, how it works, plans overview, commercial, service area |
-| `pricing.html` | Full pricing cards + policies (billing, cancellation, referrals) |
-| `quote.html` | Quote/signup request page — **Jobber form embeds here** |
-| `book.html` | Currently a "coming soon" page for online booking; Jobber booking form embed (form_id 4968383) is saved commented-out in the file, ready to restore |
+Clean URLs via the directory + `index.html` pattern (works out of the box on
+GitHub Pages, Netlify, or any static host — no config needed).
+
+| URL | File | Purpose |
+|-----|------|---------|
+| `/` | `index.html` | Home: hero, how it works, plans overview, commercial, service area |
+| `/pricing/` | `pricing/index.html` | Full pricing cards + policies (billing, cancellation, referrals) |
+| `/quote/` | `quote/index.html` | Quote/signup request page — **Jobber form embeds here** |
+| `/book/` | `book/index.html` | Online booking — Jobber booking form embed (form_id 4968383) |
+
+All asset/CSS/JS references use root-absolute paths (`/css/styles.css`,
+`/assets/...`) so pages work identically regardless of folder depth. Keep new
+pages consistent with this pattern (a folder + `index.html`, absolute paths)
+rather than mixing in bare `.html` files.
 
 ## Preview locally
 
@@ -41,9 +49,14 @@ transparent pricing, photo + text after every visit.
 ## Status
 
 - Phone (509) 416-6473 and email 509scoops@gmail.com are live on all pages
-- Jobber quote form is embedded and working on `quote.html`
-- Online booking (`book.html`) is a placeholder until the Jobber booking form
-  (services, availability, questions) is fully configured and tested
+- Jobber quote form is embedded and working on `/quote/`
+- Jobber online booking is embedded and working on `/book/` (real calendar
+  availability, tested end-to-end)
+- Logo is the user-provided badge (dog + shovel + smiling poop pile),
+  cropped to a transparent circle at `assets/logo-badge-300.png`; source
+  files are `assets/logo-badge.png` (full res) and `assets/favicon-32.png` /
+  `favicon-64.png`. Theme is a yard palette (green/sky-blue/yellow/brown) —
+  no ice-cream references, by design (rejected as too confusing).
 
 ## Remaining checklist
 
@@ -51,11 +64,6 @@ transparent pricing, photo + text after every visit.
    before hiring or taking on liability-heavy work; check "509 Scoops LLC" is
    still available
 2. **Liability insurance** — needed before commercial (HOA/apartment) work
-3. **Logo/colors** — all colors are CSS variables at the top of
-   `css/styles.css`; swap them once you have a logo
-4. **Restore online booking** — once Jobber's booking form is confirmed
-   working end-to-end (real availability, not a free-text date field), swap
-   the embed back into `book.html`
 
 ## Deploy
 
