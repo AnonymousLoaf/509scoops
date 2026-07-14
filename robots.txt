@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://509scoops.com/sitemap.xml
